@@ -1,24 +1,69 @@
-﻿var name1 = "Łukasz";
-var name2 = "Ewa";
+﻿// Tablice
 
-var sex1 = "Mężczyzna";
-var sex2 = "Kobieta";
+int[] oceny = new int[5];
+string[] Dni_tygodnia = new string[7];
+Dni_tygodnia[0] = "Poniedziałek";
+Dni_tygodnia[1] = "Wtorek";
+Dni_tygodnia[2] = "Środa";
+Dni_tygodnia[3] = "Czwartek";
+Dni_tygodnia[4] = "Piątek";
+Dni_tygodnia[5] = "Sobota";
+Dni_tygodnia[6] = "Niedziela";
 
-var age1 = 17;
-var age2 = 33;
 
-if (name2 == "Ewa" && age2 == 33)
+string[] Dni_tygodnia2 = { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
+Console.WriteLine(Dni_tygodnia[6]);
+
+
+// Pętla for
+
+for (var i = 0; i <= 6; i = i + 1)
 {
-    Console.WriteLine("Ewa, lat 30");
+    Console.WriteLine(Dni_tygodnia2[i]);
 }
 
-else if (name2 != "Ewa" && sex2 == "Kobieta" && age2 < 30)
+// Listy
+
+List<string> dayOfWeeks = new List<string>();
+dayOfWeeks.Add("Poniedziałek");
+dayOfWeeks.Add("Wtorek");
+dayOfWeeks.Add("Środa");
+dayOfWeeks.Add("Czwartek");
+dayOfWeeks.Add("Piątek");
+dayOfWeeks.Add("Sobota");
+dayOfWeeks.Add("Niedziela");
+
+for (var i = 0; i <= 6; i = i + 1)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat");
+    Console.WriteLine(dayOfWeeks[i]);
 }
 
+// Pętla foreach
 
-else if (sex1 == "Mężczyzna" && age1 < 18)
+foreach (var day in dayOfWeeks)
 {
-    Console.WriteLine("Niepełnoletni Mężczyzna");
+    Console.WriteLine(day);
+}
+
+// Zadanie Domowe Dzień 5
+
+int number = 4566;
+string numberAsString = number.ToString();
+char[] letters = numberAsString.ToArray();
+
+int counter0 = 0;
+int counter1 = 0;
+int counter2 = 0;
+
+foreach (char letter in letters)
+{
+
+    if(letter == 0)
+    {
+        counter0++;
+    }
+    else if (letter == 1)
+    {
+        counter1++;
+    }
 }
