@@ -1,69 +1,51 @@
-﻿// Tablice
+﻿// KLASY
 
-int[] oceny = new int[5];
-string[] Dni_tygodnia = new string[7];
-Dni_tygodnia[0] = "Poniedziałek";
-Dni_tygodnia[1] = "Wtorek";
-Dni_tygodnia[2] = "Środa";
-Dni_tygodnia[3] = "Czwartek";
-Dni_tygodnia[4] = "Piątek";
-Dni_tygodnia[5] = "Sobota";
-Dni_tygodnia[6] = "Niedziela";
+//Użytkownicy klasy
 
 
-string[] Dni_tygodnia2 = { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
-Console.WriteLine(Dni_tygodnia[6]);
+using ChallengeApp;
 
+Employee employee1 = new Employee("Adam", "Kowalski", "30");
+Employee employee2 = new Employee("Krzysztof", "Kwiatkowski", "35");
+Employee employee3 = new Employee("Joanna", "Nowak", "27");
 
-// Pętla for
+employee1.AddScore(4);
+employee1.AddScore(3);
+employee1.AddScore(7);
+employee1.AddScore(3);
+employee1.AddScore(7);
 
-for (var i = 0; i <= 6; i = i + 1)
+employee2.AddScore(7);
+employee2.AddScore(10);
+employee2.AddScore(3);
+employee2.AddScore(10);
+employee2.AddScore(3);
+
+employee3.AddScore(10);
+employee3.AddScore(5);
+employee3.AddScore(10);
+employee3.AddScore(5);
+employee3.AddScore(10);
+
+List<Employee> employees = new List<Employee>()
 {
-    Console.WriteLine(Dni_tygodnia2[i]);
-}
+    employee1, employee2, employee3
+};
 
-// Listy
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
 
-List<string> dayOfWeeks = new List<string>();
-dayOfWeeks.Add("Poniedziałek");
-dayOfWeeks.Add("Wtorek");
-dayOfWeeks.Add("Środa");
-dayOfWeeks.Add("Czwartek");
-dayOfWeeks.Add("Piątek");
-dayOfWeeks.Add("Sobota");
-dayOfWeeks.Add("Niedziela");
-
-for (var i = 0; i <= 6; i = i + 1)
+foreach (var employee in employees )
 {
-    Console.WriteLine(dayOfWeeks[i]);
-}
-
-// Pętla foreach
-
-foreach (var day in dayOfWeeks)
-{
-    Console.WriteLine(day);
-}
-
-// Zadanie Domowe Dzień 5
-
-int number = 4566;
-string numberAsString = number.ToString();
-char[] letters = numberAsString.ToArray();
-
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-
-foreach (char letter in letters)
-{
-
-    if(letter == 0)
+    if (employee.Result > maxResult)
     {
-        counter0++;
-    }
-    else if (letter == 1)
-    {
-        counter1++;
+        maxResult = employee.Result;
+        employeeWithMaxResult = employee;
     }
 }
+
+Console.WriteLine(employeeWithMaxResult.Name);
+Console.WriteLine(employeeWithMaxResult.Last_Name);
+Console.WriteLine(employeeWithMaxResult.Age);
+
+
